@@ -70,10 +70,11 @@ struct ContentView: View {
                 
                 Button("Calculate", action: calculateBedtime)
                 
-                Text(sleepTimeDisplay == "" ? "Tap Calculate to get your sleep time." : "Your ideal bedtime is \(sleepTimeDisplay)")
+                Text(sleepTimeDisplay == "" ? "Tap Calculate to get your new bedtime." : "Your ideal bedtime is \(sleepTimeDisplay)")
                 
                 Button("Reset") {
                     resetForm()
+                    resetSleepTimeDisplay()
                 }
             }
             .navigationTitle("BetterRest")
@@ -105,7 +106,6 @@ struct ContentView: View {
     }
     
     func resetForm() {
-        sleepTimeDisplay = ""
         sleepAmount = 8
         coffeeAmount = 0
         wakeUp = ContentView.defaultWakeTime
